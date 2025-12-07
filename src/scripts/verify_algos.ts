@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ALGORITHMS } from '../algorithms/registry';
 
 const runTests = () => {

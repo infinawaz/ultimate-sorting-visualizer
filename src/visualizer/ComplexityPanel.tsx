@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComplexityInfo } from '../types';
+import type { ComplexityInfo } from '../types';
 
 interface ComplexityPanelProps {
     info: ComplexityInfo | undefined;

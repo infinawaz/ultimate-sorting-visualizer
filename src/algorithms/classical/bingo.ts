@@ -5,8 +5,7 @@ export const bingoSort = (array: number[]): SortStep[] => {
     const arr = [...array];
     const n = arr.length;
 
-    let max = Math.max(...arr); // Initial max
-    let nextMax = Math.min(...arr); // Will track next max
+
 
     // Ideally Bingo sort goes Max -> Min or Min -> Max?
     // Standard Bingo sort finds Max and moves to end (like Selection Sort).

@@ -4,11 +4,7 @@ export const adaptiveRadixSort = (array: number[]): SortStep[] => {
     const steps: SortStep[] = [];
     let arr = [...array]; // We will update this in place properly
 
-    const getMax = (a: number[], l: number, r: number) => {
-        let m = a[l];
-        for (let i = l + 1; i <= r; i++) if (a[i] > m) m = a[i];
-        return m;
-    };
+
 
     const msdSort = (l: number, r: number, exp: number) => {
         if (l >= r || exp <= 0) return;
