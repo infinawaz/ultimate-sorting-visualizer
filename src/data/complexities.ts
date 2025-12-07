@@ -61,4 +61,16 @@ export const COMPLEXITIES: Record<string, ComplexityInfo> = {
         adaptive: false,
         notes: "Divide and conquer. Pivoting strategy affects performance. Usually the fastest in practice.",
     },
+    "heap-sort": {
+        name: "Heap Sort",
+        category: "comparison",
+        bestTime: "O(n log n)",
+        avgTime: "O(n log n)",
+        worstTime: "O(n log n)",
+        space: "O(1)",
+        stable: false,
+        inPlace: true,
+        adaptive: false,
+        notes: "Uses a binary heap data structure. Excellent worst-case performance but often slower than QuickSort in practice.",
+    },
 };
