@@ -2,26 +2,47 @@ import type { SortStep } from '../../types';
 
 export const oddEvenMergeSort = (array: number[]): SortStep[] => {
     const steps: SortStep[] = [];
-    const arr = [...array];
+    const n = array.length;
+
+    // Find next power of 2
+    let p = 1;
+    while (p < n) p *= 2;
+
+    // Pad with Infinity
+    const paddedArray = [...array];
+    for (let i = n; i < p; i++) {
+        paddedArray.push(Infinity);
+    }
+
+    const arr = [...paddedArray];
     // Batcher's odd-even merge sort works on power of 2 virtually
 
-    const compareAndSwap = (i: number, j: number) => {
-        steps.push({
-            array: [...arr],
-            compared: [i, j],
-            swapped: null,
-            merged: null,
-            pivot: null
-        });
-        if (arr[i] > arr[j]) {
-            [arr[i], arr[j]] = [arr[j], arr[i]];
+    const recordStep = (compared: [number, number] | null, swapped: [number, number] | null) => {
+        const visibleArray = arr.slice(0, n);
+        let validCompared = null;
+        if (compared && compared[0] < n && compared[1] < n) validCompared = compared;
+
+        let validSwapped = null;
+        if (swapped && swapped[0] < n && swapped[1] < n) validSwapped = swapped;
+
+        if (validCompared || validSwapped) {
             steps.push({
-                array: [...arr],
-                compared: [i, j],
-                swapped: [i, j],
+                array: visibleArray,
+                compared: validCompared,
+                swapped: validSwapped,
                 merged: null,
                 pivot: null
             });
+        }
+    };
+
+    const compareAndSwap = (i: number, j: number) => {
+        // Record comparison
+        recordStep([i, j], null);
+
+        if (arr[i] > arr[j]) {
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+            recordStep([i, j], [i, j]);
         }
     };
 
@@ -65,6 +86,16 @@ export const oddEvenMergeSort = (array: number[]): SortStep[] => {
     // Or just run it on the whole array effectively padding logic?
     // Let's trust standard recursion handles sub-parts.
 
-    sort(0, arr.length);
+    sort(0, p);
+
+    // Final step
+    steps.push({
+        array: arr.slice(0, n),
+        compared: null,
+        swapped: null,
+        merged: null,
+        pivot: null
+    });
+
     return steps;
 };
