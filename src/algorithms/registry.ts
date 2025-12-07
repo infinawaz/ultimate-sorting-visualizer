@@ -8,6 +8,11 @@ import { heapSort } from './classical/heap';
 import { countingSort } from './classical/counting';
 import { radixSort } from './classical/radix';
 import { bucketSort } from './classical/bucket';
+import { shellSort } from './classical/shell';
+import { gnomeSort } from './classical/gnome';
+import { cocktailShakerSort } from './classical/cocktail';
+import { oddEvenSort } from './classical/oddEven';
+import { combSort } from './classical/comb';
 
 export type AlgorithmFunction = (array: number[]) => SortStep[];
 
@@ -21,4 +26,9 @@ export const ALGORITHMS: Record<string, AlgorithmFunction> = {
     "counting-sort": countingSort,
     "radix-sort": radixSort,
     "bucket-sort": bucketSort,
+    "shell-sort": shellSort,
+    "gnome-sort": gnomeSort,
+    "cocktail-sort": cocktailShakerSort,
+    "odd-even-sort": oddEvenSort,
+    "comb-sort": combSort,
 };
