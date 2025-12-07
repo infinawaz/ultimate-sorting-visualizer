@@ -1,4 +1,4 @@
-import { ComplexityInfo } from "../types";
+import type { ComplexityInfo } from "../types";
 
 export const COMPLEXITIES: Record<string, ComplexityInfo> = {
     "bubble-sort": {

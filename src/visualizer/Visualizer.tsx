@@ -2,11 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Bars from './Bars';
 import Controls from './Controls';
 import { generateRandomArray } from '../utils/visualizerUtils';
-import { SortStep } from '../types';
+import type { SortStep } from '../types';
 import { COMPLEXITIES } from '../data/complexities';
-
-// Placeholder for algorithm import - will be replaced by dynamic registry or map
-// import { bubbleSort } from '../algorithms/classical/bubble'; 
+import { ALGORITHMS } from '../algorithms/registry';
 
 const Visualizer: React.FC = () => {
     const [array, setArray] = useState<number[]>([]);
@@ -43,15 +41,15 @@ const Visualizer: React.FC = () => {
 
     const handleRun = async () => {
         if (steps.length === 0) {
-            // Generate steps if not already generated
-            // Logic to pick the right algorithm function based on 'algorithm' state
-            // For now, we will just console log. In future steps, we will map this.
-            console.log("Generating steps for", algorithm);
+            const algoFunc = ALGORITHMS[algorithm];
+            if (!algoFunc) {
+                console.error(`Algorithm ${algorithm} not found`);
+                return;
+            }
 
-            // MOCK STEPS (Remove once algorithms are implemented)
-            // const mockSteps = bubbleSort([...array]); 
-            // setSteps(mockSteps);
-            return;
+            const generatedSteps = algoFunc([...array]);
+            setSteps(generatedSteps);
+            // Proceed to setPlaying
         }
 
         setIsPlaying(true);
