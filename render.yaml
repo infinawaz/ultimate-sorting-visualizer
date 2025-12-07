@@ -1,6 +1,5 @@
-services:
-  - type: site
-    name: ultimate-sorting-visualizer
+staticSites:
+  - name: ultimate-sorting-visualizer
     buildCommand: npm install && npm run build
     publishDir: dist
     routes:
