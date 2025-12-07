@@ -17,6 +17,10 @@ import { cycleSort } from './classical/cycle';
 import { pancakeSort } from './classical/pancake';
 import { stoogeSort } from './classical/stooge';
 import { bitonicSort } from './classical/bitonic';
+import { treeSort } from './classical/tree';
+import { pigeonholeSort } from './classical/pigeonhole';
+import { strandSort } from './classical/strand';
+import { bingoSort } from './classical/bingo';
 
 export type AlgorithmFunction = (array: number[]) => SortStep[];
 
@@ -39,4 +43,8 @@ export const ALGORITHMS: Record<string, AlgorithmFunction> = {
     "pancake-sort": pancakeSort,
     "stooge-sort": stoogeSort,
     "bitonic-sort": bitonicSort,
+    "tree-sort": treeSort,
+    "pigeonhole-sort": pigeonholeSort,
+    "strand-sort": strandSort,
+    "bingo-sort": bingoSort,
 };
