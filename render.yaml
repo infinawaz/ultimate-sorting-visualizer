@@ -1,7 +1,9 @@
-staticSites:
-  - name: ultimate-sorting-visualizer
+services:
+  - type: web
+    name: ultimate-sorting-visualizer
+    env: static
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: ./dist
     routes:
       - type: rewrite
         source: /*
