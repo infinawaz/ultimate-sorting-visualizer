@@ -25,6 +25,11 @@ import { timSort } from './hybrid/timsort';
 import { introsort } from './hybrid/introsort';
 import { mergeInsertionSort } from './hybrid/mergeInsertion';
 import { quickInsertionSort } from './hybrid/quickInsertion';
+import { dualPivotQuickSort } from './hybrid/dualPivotQuick';
+import { blockMergeSort } from './hybrid/blockMerge';
+import { adaptiveRadixSort } from './hybrid/adaptiveRadix';
+import { bucketInsertionSort } from './hybrid/bucketInsertion';
+import { radixBucketSort } from './hybrid/radixBucket';
 
 export type AlgorithmFunction = (array: number[]) => SortStep[];
 
@@ -55,4 +60,9 @@ export const ALGORITHMS: Record<string, AlgorithmFunction> = {
     "introsort": introsort,
     "merge-insertion-sort": mergeInsertionSort,
     "quick-insertion-sort": quickInsertionSort,
+    "dual-pivot-quick-sort": dualPivotQuickSort,
+    "block-merge-sort": blockMergeSort,
+    "adaptive-radix-sort": adaptiveRadixSort,
+    "bucket-insertion-sort": bucketInsertionSort,
+    "radix-bucket-sort": radixBucketSort,
 };
