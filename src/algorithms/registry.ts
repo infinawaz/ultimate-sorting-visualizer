@@ -13,6 +13,10 @@ import { gnomeSort } from './classical/gnome';
 import { cocktailShakerSort } from './classical/cocktail';
 import { oddEvenSort } from './classical/oddEven';
 import { combSort } from './classical/comb';
+import { cycleSort } from './classical/cycle';
+import { pancakeSort } from './classical/pancake';
+import { stoogeSort } from './classical/stooge';
+import { bitonicSort } from './classical/bitonic';
 
 export type AlgorithmFunction = (array: number[]) => SortStep[];
 
@@ -31,4 +35,8 @@ export const ALGORITHMS: Record<string, AlgorithmFunction> = {
     "cocktail-sort": cocktailShakerSort,
     "odd-even-sort": oddEvenSort,
     "comb-sort": combSort,
+    "cycle-sort": cycleSort,
+    "pancake-sort": pancakeSort,
+    "stooge-sort": stoogeSort,
+    "bitonic-sort": bitonicSort,
 };
