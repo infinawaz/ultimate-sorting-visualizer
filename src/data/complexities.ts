@@ -49,4 +49,16 @@ export const COMPLEXITIES: Record<string, ComplexityInfo> = {
         adaptive: false,
         notes: "Divide and conquer algorithm. Reliable O(n log n) performance but requires O(n) extra space.",
     },
+    "quick-sort": {
+        name: "Quick Sort",
+        category: "comparison",
+        bestTime: "O(n log n)",
+        avgTime: "O(n log n)",
+        worstTime: "O(n²)",
+        space: "O(log n)",
+        stable: false,
+        inPlace: true,
+        adaptive: false,
+        notes: "Divide and conquer. Pivoting strategy affects performance. Usually the fastest in practice.",
+    },
 };
