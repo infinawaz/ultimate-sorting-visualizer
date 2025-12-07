@@ -37,4 +37,16 @@ export const COMPLEXITIES: Record<string, ComplexityInfo> = {
         adaptive: true,
         notes: "Builds the final sorted array one item at a time. Efficient for small data sets.",
     },
+    "merge-sort": {
+        name: "Merge Sort",
+        category: "comparison",
+        bestTime: "O(n log n)",
+        avgTime: "O(n log n)",
+        worstTime: "O(n log n)",
+        space: "O(n)",
+        stable: true,
+        inPlace: false,
+        adaptive: false,
+        notes: "Divide and conquer algorithm. Reliable O(n log n) performance but requires O(n) extra space.",
+    },
 };
