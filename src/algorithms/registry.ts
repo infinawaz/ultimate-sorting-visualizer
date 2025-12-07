@@ -21,6 +21,10 @@ import { treeSort } from './classical/tree';
 import { pigeonholeSort } from './classical/pigeonhole';
 import { strandSort } from './classical/strand';
 import { bingoSort } from './classical/bingo';
+import { timSort } from './hybrid/timsort';
+import { introsort } from './hybrid/introsort';
+import { mergeInsertionSort } from './hybrid/mergeInsertion';
+import { quickInsertionSort } from './hybrid/quickInsertion';
 
 export type AlgorithmFunction = (array: number[]) => SortStep[];
 
@@ -47,4 +51,8 @@ export const ALGORITHMS: Record<string, AlgorithmFunction> = {
     "pigeonhole-sort": pigeonholeSort,
     "strand-sort": strandSort,
     "bingo-sort": bingoSort,
+    "timsort": timSort,
+    "introsort": introsort,
+    "merge-insertion-sort": mergeInsertionSort,
+    "quick-insertion-sort": quickInsertionSort,
 };
