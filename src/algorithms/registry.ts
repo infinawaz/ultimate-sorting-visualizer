@@ -30,6 +30,9 @@ import { blockMergeSort } from './hybrid/blockMerge';
 import { adaptiveRadixSort } from './hybrid/adaptiveRadix';
 import { bucketInsertionSort } from './hybrid/bucketInsertion';
 import { radixBucketSort } from './hybrid/radixBucket';
+import { oddEvenMergeSort } from './parallel/oddEvenMerge';
+import { sampleSort } from './parallel/sample';
+import { gpuRadixSort } from './parallel/gpuRadix';
 
 export type AlgorithmFunction = (array: number[]) => SortStep[];
 
@@ -65,4 +68,7 @@ export const ALGORITHMS: Record<string, AlgorithmFunction> = {
     "adaptive-radix-sort": adaptiveRadixSort,
     "bucket-insertion-sort": bucketInsertionSort,
     "radix-bucket-sort": radixBucketSort,
+    "odd-even-merge-sort": oddEvenMergeSort,
+    "sample-sort": sampleSort,
+    "gpu-radix-sort": gpuRadixSort,
 };
