@@ -26,7 +26,7 @@ const Bars: React.FC<BarsProps> = ({ array, compared, swapped, merged, pivot }) 
         }
 
         // Dynamic height based on value (assuming sorting 1-100 or relative)
-        const height = `${Math.max(5, (value / Math.max(...array)) * 100)}%`;
+        const height = `${Math.max(5, (value / Math.max(...array)) * 85)}%`;
 
         return { height, bgColor };
     };
@@ -36,12 +36,16 @@ const Bars: React.FC<BarsProps> = ({ array, compared, swapped, merged, pivot }) 
             {array.map((value, idx) => {
                 const { height, bgColor } = getBarStyle(idx, value);
                 return (
-                    <div
-                        key={idx}
-                        className={`w-full transition-all duration-75 ease-in-out ${bgColor} rounded-t-sm`}
-                        style={{ height }}
-                        title={`Value: ${value}`}
-                    ></div>
+                    <div key={idx} className="flex flex-col justify-end items-center w-full h-full gap-1">
+                        <div
+                            className={`w-full transition-all duration-75 ease-in-out ${bgColor} rounded-t-sm`}
+                            style={{ height }}
+                            title={`Value: ${value}`}
+                        ></div>
+                        <span className="text-[10px] text-gray-300 font-mono select-none">
+                            {value}
+                        </span>
+                    </div>
                 );
             })}
         </div>
