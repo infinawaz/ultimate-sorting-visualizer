@@ -51,7 +51,7 @@ const Controls: React.FC<ControlsProps> = ({
                 <input
                     type="range"
                     min="1"
-                    max="500"
+                    max="1000"
                     value={speed}
                     onChange={(e) => setSpeed(Number(e.target.value))}
                     disabled={isPlaying}

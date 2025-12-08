@@ -82,7 +82,7 @@ const Visualizer: React.FC = () => {
                 const step = steps[currentStep];
                 setArray(step.array);
                 setCurrentStep(prev => prev + 1);
-            }, Math.max(0, 500 - speed)); // Invert speed mapping roughly
+            }, Math.max(0, 1000 - speed)); // Invert speed mapping roughly
         } else if (currentStep >= steps.length) {
             setIsPlaying(false);
         }
